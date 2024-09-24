@@ -140,12 +140,20 @@ function App() {
               <div className="form">
                 <div className="form-group">
                   <label htmlFor="amount">Mortgage Amount</label>
-                  <span className="icon-left">£</span>
+                  <span
+                    className={`icon-left ${
+                      errors.amount ? "border-red bg-red" : ""
+                    }`}
+                  >
+                    £
+                  </span>
                   <input
                     type="number"
                     placeholder=""
                     id="amount"
-                    className="w-full form-control pl-50"
+                    className={`w-full form-control pl-50 ${
+                      errors.amount ? "border-red" : ""
+                    }`}
                     {...register("amount", {
                       required: "This field is required",
                       pattern: { value: /\d*/g, message: "Must be numbers" },
@@ -174,7 +182,9 @@ function App() {
                       type="number"
                       placeholder=""
                       id="terms"
-                      className="w-full form-control pr-75"
+                      className={`w-full form-control pr-75 ${
+                        errors.term ? "border-red" : ""
+                      }`}
                       {...register("term", {
                         required: "This field is required",
                         pattern: { value: /\d*/g, message: "Must be numbers" },
@@ -189,7 +199,13 @@ function App() {
                         onChange: (e) => handleOnChange(e),
                       })}
                     />
-                    <span className="icon-right">Years</span>
+                    <span
+                      className={`icon-right ${
+                        errors.term ? "border-red bg-red" : ""
+                      }`}
+                    >
+                      years
+                    </span>
                     {errors.term && (
                       <span className="error-text fs-14 mt-12">
                         {errors.term.message}
@@ -204,7 +220,9 @@ function App() {
                       step="0.01"
                       placeholder=""
                       id="rate"
-                      className="w-full form-control pr-50"
+                      className={`w-full form-control pr-50 ${
+                        errors.rate ? "border-red" : ""
+                      }`}
                       {...register("rate", {
                         required: "This field is required",
                         pattern: { value: /\d*/g, message: "Must be numbers" },
@@ -219,7 +237,13 @@ function App() {
                         onChange: (e) => handleOnChange(e),
                       })}
                     />
-                    <span className="icon-right">%</span>
+                    <span
+                      className={`icon-right ${
+                        errors.rate ? "border-red bg-red" : ""
+                      }`}
+                    >
+                      %
+                    </span>
                     {errors.rate && (
                       <span className="error-text fs-14 mt-12">
                         {errors.rate.message}
