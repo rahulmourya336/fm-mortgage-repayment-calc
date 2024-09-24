@@ -275,7 +275,7 @@ function App() {
                         htmlFor="prepayment"
                         className="radio-label cursor-pointer"
                       >
-                        Prepayment
+                        Repayment
                       </label>
                     </div>
                     <div
